@@ -1,0 +1,154 @@
+/* ============================================================
+   Mahavir Dabas — academic personal site
+   Minimal, single-page, responsive. Edit colors below.
+   ============================================================ */
+
+:root {
+  --accent: #8c1d40;          /* VT-ish maroon accent */
+  --text: #222;
+  --text-soft: #555;
+  --bg: #ffffff;
+  --bg-soft: #f7f7f8;
+  --border: #e6e6e6;
+  --max-width: 960px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  padding: 60px 24px;
+  align-items: flex-start;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  flex: 0 0 220px;
+  text-align: center;
+  position: sticky;
+  top: 60px;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+
+.name { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+.tagline { color: var(--text-soft); font-size: 0.95rem; }
+.affiliation { color: var(--text-soft); font-size: 0.95rem; margin-bottom: 16px; }
+
+.social-links { display: flex; justify-content: center; gap: 16px; font-size: 1.25rem; }
+.social-links a { color: var(--text-soft); }
+.social-links a:hover { color: var(--accent); }
+
+/* ---------- Main content ---------- */
+.content { flex: 1; min-width: 0; }
+
+section { margin-bottom: 44px; }
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+section p { margin-bottom: 12px; color: var(--text); }
+
+.note { font-size: 0.85rem; color: var(--text-soft); }
+
+/* ---------- News ---------- */
+.news-list { list-style: none; }
+.news-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+.news-list li:last-child { border-bottom: none; }
+.news-date {
+  display: inline-block;
+  min-width: 78px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ---------- Publications ---------- */
+.pub {
+  display: flex;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pub:last-child { border-bottom: none; }
+
+.pub-thumb {
+  flex: 0 0 140px;
+}
+.pub-thumb img {
+  width: 140px;
+  height: 90px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-soft);
+}
+
+.pub-info { flex: 1; min-width: 0; }
+.pub-title { font-weight: 600; margin-bottom: 4px !important; }
+.pub-authors { font-size: 0.9rem; color: var(--text-soft); margin-bottom: 4px !important; }
+.pub-venue { margin-bottom: 4px !important; }
+.pub-links { font-size: 0.9rem; }
+.pub-links a { margin-right: 12px; }
+
+.venue-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 1px 9px;
+  border-radius: 4px;
+}
+.venue-badge.preprint { background: var(--text-soft); }
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .container { flex-direction: column; gap: 32px; padding: 36px 20px; }
+  .sidebar { position: static; flex: none; width: 100%; }
+  .pub { flex-direction: column; gap: 10px; }
+  .pub-thumb img { width: 100%; height: auto; max-height: 160px; }
+}
